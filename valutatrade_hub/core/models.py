@@ -127,10 +127,10 @@ class Wallet:
 class Portfolio:
     """Класс для управления всеми кошельками одного пользователя."""
 
-    def __init__(self, user_id: int, wallets: Dict[str, Wallet] = None) -> None:
+    def __init__(self, user_id: int, wallets: dict[str, Wallet] | None = None) -> None:
         """Инициализация портфеля пользователя."""
         self._user_id: int = user_id
-        self._wallets: Dict[str, Wallet] = wallets if wallets is not None else {}
+        self._wallets: dict[str, Wallet] = wallets if wallets is not None else {}
 
     @property
     def user_id(self) -> int:
@@ -138,7 +138,7 @@ class Portfolio:
         return self._user_id
 
     @property
-    def wallets(self) -> Dict[str, Wallet]:
+    def wallets(self) -> dict[str, Wallet]:
         """Геттер, возвращающий копию словаря кошельков для безопасности."""
         return self._wallets.copy()
 
